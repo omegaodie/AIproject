@@ -1,0 +1,83 @@
+{
+  "main_menu": {
+    "menuBackground": {
+      "dimensions": {
+        "w": 1100,
+        "h": 900
+      },
+      "image_src": "assets/m_BackGround.png"
+    },
+    "buttons": [
+      {
+        "s": 2
+      },
+      {
+        "image_src": "assets/m_PlayButton.png",
+        "w": 256,
+        "h": 256,
+        "x": 15,
+        "y": 200,
+        "name": "Play"
+      },
+      {
+        "image_src": "assets/m_ExitButton.png",
+        "w": 192,
+        "h": 189,
+        "x": 450,
+        "y": 20,
+        "name": "Exit"
+      }
+    ]
+  },
+  "game": {
+    "g_details": {
+      "numLevels": 3,
+      "y": 1024,
+      "x": 9216,
+      "src_SpaceImage": "assets/g_SpaceBackground.png"
+    },
+    "Levels": [
+      {
+        "src_backGround": "assets/l_LavaWorld.png",
+        "num_Nests": 2,
+        "num_Abductors": 10,
+        "num_Mutants": 0,
+        "num_Obstacles": 1,
+        "num_PowerUps": 1,
+        "num_Astronaunts": 3,
+        "player_Spawn_X": 512,
+        "player_Spawn_Y":  512,
+        "name": "Lava"
+      },
+      {
+        "src_backGround": "assets/l_IceWorld.png",
+        "num_Nests": 2,
+        "num_Abductors": 10,
+        "num_Mutants": 0,
+        "num_Obstacles": 1,
+        "num_PowerUps": 1,
+        "num_Astronaunts": 3,
+        "player_Spawn_X": 200,
+        "player_Spawn_Y":  100,
+        "name": "Ice"
+      },
+      {
+        "src_backGround": "assets/l_CityWorld.png",
+        "num_Nests": 2,
+        "num_Abductors": 10,
+        "num_Mutants": 0,
+        "num_Obstacles": 1,
+        "num_PowerUps": 1,
+        "num_Astronaunts": 3,
+        "player_Spawn_X": 200,
+        "player_Spawn_Y":  300,
+        "name": "City"
+      }
+    ]
+  },
+  "Player": {
+    "img_source": "assets/p_Ship.png",
+    "x": 128,
+    "y": 128
+  }
+}
