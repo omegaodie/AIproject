@@ -1,19 +1,7 @@
-﻿  stdafx.cpp
-  Player.cpp
-c:\users\eco\documents\visual studio 2015\projects\defender\defender\player.cpp(42): warning C4305: '+=': truncation from 'double' to 'float'
-  Menu.cpp
-  LevelManager.cpp
-  Level.cpp
-  GameManager.cpp
-  GameData.cpp
-c:\users\eco\documents\visual studio 2015\projects\defender\defender\gamedata.cpp(63): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-  Defender.cpp
-  Button.cpp
-c:\users\eco\documents\visual studio 2015\projects\defender\defender\button.cpp(20): warning C4244: 'argument': conversion from 'const int' to 'float', possible loss of data
-  Animation.cpp
-  AnimatedSprite.cpp
-  AIManager.cpp
+﻿  AIManager.cpp
+c:\users\gameuser\desktop\aiproject\aiproject\defender\defender\aimanager.cpp(83): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+  AI.cpp
+c:\users\gameuser\desktop\aiproject\aiproject\defender\defender\ai.cpp(11): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
   Generating Code...
-c:\users\eco\documents\visual studio 2015\projects\defender\defender\menu.cpp(50): warning C4715: 'Menu::getState': not all control paths return a value
-  Defender.vcxproj -> C:\Users\ECO\Documents\Visual Studio 2015\Projects\Defender\Debug\Defender.exe
-  Defender.vcxproj -> C:\Users\ECO\Documents\Visual Studio 2015\Projects\Defender\Debug\Defender.pdb (Full PDB)
+  Defender.vcxproj -> C:\Users\gameuser\Desktop\AIProject\AIproject\Defender\Debug\Defender.exe
+  Defender.vcxproj -> C:\Users\gameuser\Desktop\AIProject\AIproject\Defender\Debug\Defender.pdb (Full PDB)

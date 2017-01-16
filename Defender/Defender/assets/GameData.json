@@ -34,11 +34,17 @@
       "numLevels": 3,
       "y": 1024,
       "x": 9216,
+      "AI": {
+        "src_astronaut": "assets/ai_astronaut.png",
+        "src_abductor": "assets/ai_Abductor.png",
+        "src_nest" :  "assets/ai_Nest.png"
+      },
       "src_SpaceImage": "assets/g_SpaceBackground.png"
     },
     "Levels": [
       {
-        "src_backGround": "assets/l_LavaWorld.png",
+        "src_backGround": "assets/l_lavaWorldGround.png",
+        "num_totalAi" :  15,
         "num_Nests": 2,
         "num_Abductors": 10,
         "num_Mutants": 0,
@@ -51,6 +57,7 @@
       },
       {
         "src_backGround": "assets/l_IceWorld.png",
+         "num_totalAi" :  15,
         "num_Nests": 2,
         "num_Abductors": 10,
         "num_Mutants": 0,
@@ -63,6 +70,7 @@
       },
       {
         "src_backGround": "assets/l_CityWorld.png",
+         "num_totalAi" :  15,
         "num_Nests": 2,
         "num_Abductors": 10,
         "num_Mutants": 0,

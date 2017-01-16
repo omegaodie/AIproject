@@ -1,7 +1,7 @@
 #include "Level.h"
 
 
-Level::Level(const GameData& gdata, Player& p, sf::View& v) : gd(gdata), l_Player(p), view(v) {
+Level::Level(const GameData& gdata, Player& p, sf::View& v) : gd(gdata), l_Player(p), view(v), l_AIM(gdata){
 	view.reset(sf::FloatRect(0, 0, 1024, 1024));
 }
 
@@ -13,12 +13,15 @@ void Level::init(int ln)
 	l_Player.Init(ln);
 	l_worldSpritePos = sf::Vector2f(0, 0);
 	l_worldSprite->setPosition(l_worldSpritePos);
+	l_AIM.init(ln);
 }
 
 bool Level::Update()
 {
 	l_Player.Update();
+	l_AIM.Update();
 	moveWorld(l_Player.getPlayerPosition());
+
 	return true;
 }
 
@@ -28,6 +31,7 @@ void Level::getInput(sf::Event &eve) {
 
 void Level::Draw(sf::RenderWindow &w){
 	w.draw(*l_worldSprite);
+	l_AIM.Draw(w);
 	l_Player.Draw(w);
 }
 

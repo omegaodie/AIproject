@@ -26,6 +26,8 @@ public:
 private:
 
 	sf::Vector2f displacement;
+
+	float p_rotation;
 	
 
 	const GameData& gd;

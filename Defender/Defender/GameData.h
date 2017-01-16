@@ -13,6 +13,18 @@ using jsoncons::pretty_print;
 using jsoncons::json_deserializer;
 using namespace std;
 
+
+
+typedef struct {
+	int total;
+	int astronauts;
+	int nests;
+	int abductors;
+	int mutants;
+} aiUnits;
+
+
+
 class GameData {
 private:
 	json gamedata;
@@ -44,6 +56,7 @@ public:
 	vector<sf::Image> g_LevelImages;
 	vector<sf::Texture> m_LevelTextures;
 	vector<sf::Vector2f> l_playerSpawn;
+	vector<aiUnits> l_numAiUnits;
 
 
 	////////PLAYER/////////////////////////
@@ -51,6 +64,24 @@ public:
 	sf::Image p_shipImage;
 	sf::Texture p_shipTexture;
 	sf::Vector2f p_shipDimensions;
+
+
+
+	////////AI/////////////////////////
+	string ai_astronautSource;
+	sf::Image ai_astronautImage;
+	sf::Texture ai_astronautTexture;
+	sf::Vector2f ai_astronautDimensions;
+
+	string ai_abductorSource;
+	sf::Image ai_abductorImage;
+	sf::Texture ai_abductorTexture;
+	sf::Vector2f ai_abductorDimensions;
+
+	string ai_nestSource;
+	sf::Image ai_nestImage;
+	sf::Texture ai_nestTexture;
+	sf::Vector2f ai_nestDimensions;
 	
 
 };

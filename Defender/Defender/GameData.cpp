@@ -61,6 +61,8 @@ void GameData::loadGameData()
 		g_LevelNames.push_back(string(mGameData["game"]["Levels"][i]["name"].as_string()));
 
 		l_playerSpawn.push_back(sf::Vector2f(mGameData["game"]["Levels"][i]["player_Spawn_X"].as<int>(), mGameData["game"]["Levels"][i]["player_Spawn_Y"].as<int>()));
+
+		l_numAiUnits.push_back(aiUnits{ mGameData["game"]["Levels"][i]["num_totalAi"].as<int>(), mGameData["game"]["Levels"][i]["num_Astronaunts"].as<int>(),  mGameData["game"]["Levels"][i]["num_Nests"].as<int>(),  mGameData["game"]["Levels"][i]["num_Abductors"].as<int>(),  mGameData["game"]["Levels"][i]["num_Mutants"].as<int>() });
 	}
 
 
@@ -73,4 +75,31 @@ void GameData::loadGameData()
 
 	p_shipImage.loadFromFile(p_shipSource);
 	p_shipTexture.loadFromImage(p_shipImage);
+
+
+
+	///////////////////AI//////////////////
+	ai_astronautSource = mGameData["game"]["g_details"]["AI"]["src_astronaut"].as_string();
+
+	ai_astronautImage = sf::Image();
+	ai_astronautTexture = sf::Texture();
+
+	ai_astronautImage.loadFromFile(ai_astronautSource);
+	ai_astronautTexture.loadFromImage(ai_astronautImage);
+
+	ai_abductorSource = mGameData["game"]["g_details"]["AI"]["src_abductor"].as_string();
+
+	ai_abductorImage = sf::Image();
+	ai_abductorTexture = sf::Texture();
+
+	ai_abductorImage.loadFromFile(ai_abductorSource);
+	ai_abductorTexture.loadFromImage(ai_abductorImage);
+
+	ai_nestSource = mGameData["game"]["g_details"]["AI"]["src_nest"].as_string();
+
+	ai_nestImage = sf::Image();
+	ai_nestTexture = sf::Texture();
+
+	ai_nestImage.loadFromFile(ai_nestSource);
+	ai_nestTexture.loadFromImage(ai_nestImage);
 }
