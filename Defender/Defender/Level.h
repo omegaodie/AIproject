@@ -7,6 +7,8 @@
 #include "AIManager.h"
 #include "GameData.h"
 #include "Player.h"
+#include "CollisionManager.h"
+
 
 class Level {
 
@@ -22,11 +24,16 @@ public:
 
 	void Draw(sf::RenderWindow &w);
 
+	void Collisions();
+
+
 private:
 
 	void moveWorld(sf::Vector2f& ps); // we move the world according to the speed of the player
 
 	sf::View& view;
+
+	CollisionManager cm;
 
 	Player& l_Player;
 

@@ -4,6 +4,9 @@
 Player::Player(const GameData& gdata) : gd(gdata)
 {
 	shipSprite = new sf::Sprite();
+	for (int i = 0; i < 100; i++) {
+		p_Bullets.push_back(Bullet(gd));
+	}
 }
 
 void Player::Init(int ln) {
@@ -22,9 +25,27 @@ Player::~Player()
 
 }
 
+Bullet& Player::getBullet(int i) {
+	return p_Bullets[i];
+}
+
 
 void Player::Update()
 {
+	if (hp <= 0) {
+		alive = false;
+	}
+	for (int i = 0; i < 100; i++) {
+		if (p_Bullets[i].getAlive() == true) {
+			p_Bullets[i].Update();
+		}
+	}
+	for (int i = 0; i < p_BulletsFire.size(); i++) {
+		if (p_Bullets[p_BulletsFire[i]].getAlive() == false) {
+			p_Bullets[p_BulletsFire[i]].reset();
+		}
+	}
+
 	shipSprite->setRotation(p_rotation);
 
 	if ((shipPos.x >= 128) && (shipPos.x <= gd.w_Dimensions.x - 128)) {
@@ -94,8 +115,8 @@ void Player::Update()
 void Player::getInput(sf::Event& eve)
 {
 	if (eve.key.code == sf::Keyboard::A) {
-		if (shipSpeed.x >= -5) {
-			shipSpeed.x -= 0.5f;
+		if (shipSpeed.x >= -500) {
+			shipSpeed.x -= 5;
 			displacement.x += shipSpeed.x;
 			if (!movingLeft) {
 				turning = true;
@@ -103,8 +124,8 @@ void Player::getInput(sf::Event& eve)
 		}
 	}
 	if (eve.key.code == sf::Keyboard::D) {
-		if (shipSpeed.x <= 5) {
-			shipSpeed.x += 0.5f;
+		if (shipSpeed.x <= 500) {
+			shipSpeed.x += 5;
 			displacement.x += shipSpeed.x;
 			if (movingLeft) {
 				turning = true;
@@ -123,11 +144,19 @@ void Player::getInput(sf::Event& eve)
 			displacement.y += shipSpeed.y;
 		}
 	}
+	if (eve.key.code == sf::Keyboard::Space) {
+		fire();
+	}
 }
 
 void Player::Draw(sf::RenderWindow &w)
 {
 	w.draw(*shipSprite);
+	for (int i = 0; i < 100; i++) {
+		if (p_Bullets[i].getAlive() == true) {
+			p_Bullets[i].Draw(w);
+		}
+	}
 }
 
 sf::Vector2f& Player::getPlayerPosition() 
@@ -135,3 +164,21 @@ sf::Vector2f& Player::getPlayerPosition()
 	return shipPos;
 }
 
+vector<int> Player::getBulletsFired() {
+	return p_BulletsFire;
+}
+
+void Player::fire()
+{
+	for (int i = 0; i < 100; i++) {
+		if (p_Bullets[i].getAlive() != true) {
+			p_Bullets[i].init(shipPos, shipSpeed, p_rotation);
+			p_BulletsFire.push_back(i);
+			break;
+		}
+	}
+}
+
+void Player::isHit() {
+	hp - 5;
+}

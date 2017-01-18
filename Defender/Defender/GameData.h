@@ -90,6 +90,11 @@ public:
 	sf::Image ai_nestImage;
 	sf::Texture ai_nestTexture;
 	sf::Vector2f ai_nestDimensions;
+
+	////////BOOMBOOM/////////////////////////
+	string boom_source;
+	sf::Image b_Image;		// The player bullet texture
+	sf::Texture b_Texture;			// The enemy bullet texture
 	
 
 };

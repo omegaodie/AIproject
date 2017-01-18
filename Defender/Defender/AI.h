@@ -5,6 +5,8 @@
 #include <SFML/Graphics.hpp>
 #include "AnimatedSprite.h"
 #include "GameData.h"
+#include "Bullet.h"
+#include "Boid.h"
 
 class AI {
 
@@ -36,13 +38,25 @@ public:
 
 	int getAbductors();
 
-	void makeAbductor();
+	bool makeAbductor();
 
 	bool getWander();
 
 	void setWander(bool b);
 
+	void setAlive(bool b);
+
 	sf::Vector2f& getDirection();
+
+	Bullet& getBullet(int i);
+
+	void fire(sf::Vector2f dir);
+
+	void Seperation(float s);
+
+	void Alignment(float a);
+
+	Boid& getBoid();
 
 
 private:
@@ -53,7 +67,15 @@ private:
 
 	float e_randTimer, n_SpawnAbductorTimer;
 
+	int speed;
+
 	bool e_alive, a_wander;
+
+	vector<Bullet> e_Bullets;
+
+	Boid e_Boid;
+
+	vector<int> fireBullets;
 
 	sf::Sprite e_Sprite;
 

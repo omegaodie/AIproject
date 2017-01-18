@@ -43,7 +43,10 @@
         "abductor_dims_y" :  64,
         "src_nest": "assets/ai_Nest.png",
         "nest_dims_x": 256,
-        "nest_dims_y" :  256
+        "nest_dims_y": 256,
+        "bullet_src": "assets/p_Bullet.png",
+        "plyr_bullet_x": 12,
+        "plyr_bullet_y": 24
       },
       "src_SpaceImage": "assets/g_SpaceBackground.png"
     },
@@ -51,8 +54,8 @@
       {
         "src_backGround": "assets/l_lavaWorldGround.png",
         "num_totalAi" :  15,
-        "num_Nests": 10,
-        "num_Abductors": 200,
+        "num_Nests": 5,
+        "num_Abductors": 100,
         "num_Mutants": 0,
         "num_Obstacles": 1,
         "num_PowerUps": 1,

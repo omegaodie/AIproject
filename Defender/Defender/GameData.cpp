@@ -110,4 +110,14 @@ void GameData::loadGameData()
 
 	ai_nestImage.loadFromFile(ai_nestSource);
 	ai_nestTexture.loadFromImage(ai_nestImage);
+
+
+
+	/////////////////////BOOOM////////////////////////////////
+	boom_source = mGameData["game"]["g_details"]["AI"]["bullet_src"].as_string();
+
+
+	b_Image.loadFromFile(boom_source);	// Set player bullet texture
+	b_Texture.loadFromImage(b_Image);
+
 }

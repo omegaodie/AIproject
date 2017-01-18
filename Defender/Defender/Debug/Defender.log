@@ -1,5 +1,11 @@
-﻿  AI.cpp
-c:\users\eco\desktop\ai\aiproject\defender\defender\ai.cpp(13): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-c:\users\eco\desktop\ai\aiproject\defender\defender\ai.cpp(49): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+﻿  AIManager.cpp
+c:\users\eco\desktop\ai\aiproject\defender\defender\boid.h(43): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\eco\desktop\ai\aiproject\defender\defender\boid.h(54): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\eco\desktop\ai\aiproject\defender\defender\boid.h(58): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\eco\desktop\ai\aiproject\defender\defender\aimanager.cpp(113): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\eco\desktop\ai\aiproject\defender\defender\aimanager.cpp(132): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\eco\desktop\ai\aiproject\defender\defender\aimanager.cpp(140): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\eco\desktop\ai\aiproject\defender\defender\aimanager.cpp(148): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\eco\desktop\ai\aiproject\defender\defender\aimanager.cpp(156): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
   Defender.vcxproj -> C:\Users\ECO\Desktop\AI\AIproject\Defender\Debug\Defender.exe
   Defender.vcxproj -> C:\Users\ECO\Desktop\AI\AIproject\Defender\Debug\Defender.pdb (Full PDB)

@@ -6,12 +6,14 @@
 #include "GameData.h"
 #include <random>
 #include "AI.h"
+#include "Player.h"
+#include "Flock.h"
 
 class AIManager {
 
 public:
 
-	AIManager(const GameData& gd);
+	AIManager(const GameData& gd, Player& p);
 
 	void init(int Ln);
 
@@ -19,7 +21,7 @@ public:
 
 	void Draw(sf::RenderWindow &w);
 
-	void Flock();
+	void FlockingAlgorithim();
 
 	void Seek();
 
@@ -29,10 +31,24 @@ public:
 
 	void Flee();
 
+	void AttackPlayer();
+
+
+	AI& getAstroNauts(int r);
+
+	AI& getNests(int r);
+
+	AI& getAbductors(int r);
+
+	AI& getMutants(int r);
+
+
 	void Spawn();
 
 private:
 	const GameData& gd;
+
+	Player& a_P;
 	
 	aiUnits* am_numUnits;
 
@@ -43,7 +59,8 @@ private:
 	vector<AI> am_Abductors;
 	vector<AI> am_Mutants;
 
-
+	vector<Flock> am_Flocks;
+	vector<Flock> am_SwarM;
 
 };
 #endif

@@ -5,7 +5,7 @@
 #include <SFML/Graphics.hpp>
 #include <SFML/OpenGL.hpp>
 #include <math.h>
-
+#include "Bullet.h"
 #include "GameData.h"
 
 class Player
@@ -16,25 +16,38 @@ public:
 
 	void Init(int lvel);
 
+	void isHit();
 
 	void Update();
 	void getInput(sf::Event &eve);
 	void Draw(sf::RenderWindow &w);
 
 	sf::Vector2f& getPlayerPosition();
+	Bullet& getBullet(int i);
+
+	vector<int> getBulletsFired();
 
 private:
 
+
+	void fire();
+
 	sf::Vector2f displacement;
+	
+	int hp;
+
+	vector<int> p_BulletsFire;
 
 	float p_rotation;
 	
-	bool movingLeft, turning;
+	bool movingLeft, turning, alive;
 
 	const GameData& gd;
 
 	sf::Sprite* shipSprite;
 	sf::Vector2f shipPos;
+
+	vector<Bullet> p_Bullets;
 
 	int playerHealth;
 	int playerScore;
