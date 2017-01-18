@@ -47,6 +47,10 @@ void GameData::loadGameData()
 	g_backGroundimage.loadFromFile(g_spaceSource);
 	g_bgtexture.loadFromImage(g_backGroundimage);
 
+	w_Dimensions = sf::Vector2f();
+	w_Dimensions.x = mGameData["game"]["g_details"]["x"].as<int>();
+	w_Dimensions.y = mGameData["game"]["g_details"]["y"].as<int>();
+
 	numLevels = mGameData["game"]["g_details"]["numLevels"].as<int>();
 	for (int i = 0; i < numLevels; i++) {
 
@@ -81,6 +85,8 @@ void GameData::loadGameData()
 	///////////////////AI//////////////////
 	ai_astronautSource = mGameData["game"]["g_details"]["AI"]["src_astronaut"].as_string();
 
+	ai_astronautDimensions = sf::Vector2f(mGameData["game"]["g_details"]["AI"]["astro_dims_x"].as<int>(), mGameData["game"]["g_details"]["AI"]["astro_dims_y"].as<int>());
+
 	ai_astronautImage = sf::Image();
 	ai_astronautTexture = sf::Texture();
 
@@ -88,6 +94,7 @@ void GameData::loadGameData()
 	ai_astronautTexture.loadFromImage(ai_astronautImage);
 
 	ai_abductorSource = mGameData["game"]["g_details"]["AI"]["src_abductor"].as_string();
+	ai_abductorDimensions = sf::Vector2f(mGameData["game"]["g_details"]["AI"]["abductor_dims_x"].as<int>(), mGameData["game"]["g_details"]["AI"]["abductor_dims_y"].as<int>());
 
 	ai_abductorImage = sf::Image();
 	ai_abductorTexture = sf::Texture();
@@ -96,6 +103,7 @@ void GameData::loadGameData()
 	ai_abductorTexture.loadFromImage(ai_abductorImage);
 
 	ai_nestSource = mGameData["game"]["g_details"]["AI"]["src_nest"].as_string();
+	ai_nestDimensions = sf::Vector2f(mGameData["game"]["g_details"]["AI"]["nest_dims_x"].as<int>(), mGameData["game"]["g_details"]["AI"]["nest_dims_y"].as<int>());
 
 	ai_nestImage = sf::Image();
 	ai_nestTexture = sf::Texture();

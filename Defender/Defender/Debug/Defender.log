@@ -1,7 +1,5 @@
-﻿  AIManager.cpp
-c:\users\gameuser\desktop\aiproject\aiproject\defender\defender\aimanager.cpp(83): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-  AI.cpp
-c:\users\gameuser\desktop\aiproject\aiproject\defender\defender\ai.cpp(11): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-  Generating Code...
-  Defender.vcxproj -> C:\Users\gameuser\Desktop\AIProject\AIproject\Defender\Debug\Defender.exe
-  Defender.vcxproj -> C:\Users\gameuser\Desktop\AIProject\AIproject\Defender\Debug\Defender.pdb (Full PDB)
+﻿  AI.cpp
+c:\users\eco\desktop\ai\aiproject\defender\defender\ai.cpp(13): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\eco\desktop\ai\aiproject\defender\defender\ai.cpp(49): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+  Defender.vcxproj -> C:\Users\ECO\Desktop\AI\AIproject\Defender\Debug\Defender.exe
+  Defender.vcxproj -> C:\Users\ECO\Desktop\AI\AIproject\Defender\Debug\Defender.pdb (Full PDB)

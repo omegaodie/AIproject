@@ -13,6 +13,7 @@ void Level::init(int ln)
 	l_Player.Init(ln);
 	l_worldSpritePos = sf::Vector2f(0, 0);
 	l_worldSprite->setPosition(l_worldSpritePos);
+	l_worldSprite->setScale(1, 0.5);
 	l_AIM.init(ln);
 }
 
@@ -37,6 +38,8 @@ void Level::Draw(sf::RenderWindow &w){
 
 void Level::moveWorld(sf::Vector2f & ps)
 {
-	//if()
-	view.setCenter(ps.x , ps.y);
+	if ((ps.x > 512) && (ps.x < gd.w_Dimensions.x - 512)) {
+		view.setCenter(ps.x, 512);
+	}
+	
 }

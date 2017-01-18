@@ -12,9 +12,11 @@ public:
 
 	AI(const GameData& gd);
 
-	virtual void init(int ln, int type);
+	void init(int ln, int type);
 
-	virtual void init(sf::Vector2f* spwn, int ln, int type);
+	void init(sf::Vector2f spwn, int ln, int type);
+
+	void Abductorinit(sf::Vector2f& spwn, int dir, int ln);
 
 	sf::Vector2f getPosition();
 
@@ -30,12 +32,28 @@ public:
 
 	void Draw(sf::RenderWindow &w);
 
+	bool getAlive();
+
+	int getAbductors();
+
+	void makeAbductor();
+
+	bool getWander();
+
+	void setWander(bool b);
+
+	sf::Vector2f& getDirection();
+
 
 private:
 
 	int e_pattern, e_type;
 
-	float timer;
+	int e_range, n_numAbductors;
+
+	float e_randTimer, n_SpawnAbductorTimer;
+
+	bool e_alive, a_wander;
 
 	sf::Sprite e_Sprite;
 

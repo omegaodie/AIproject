@@ -21,6 +21,10 @@ typedef struct {
 	int nests;
 	int abductors;
 	int mutants;
+	int c_astronauts;
+	int c_nests;
+	int c_abductors;
+	int c_mutants;
 } aiUnits;
 
 
@@ -33,6 +37,8 @@ private:
 
 public:
 	GameData::GameData();
+
+
 
 
 	//MENU//
@@ -48,6 +54,8 @@ public:
 
 
 	///LEVELS/////////
+	sf::Vector2f w_Dimensions;
+
 	string g_spaceSource;
 	sf::Image g_backGroundimage;
 	sf::Texture g_bgtexture;

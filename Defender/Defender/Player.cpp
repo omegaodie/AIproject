@@ -13,7 +13,8 @@ void Player::Init(int ln) {
 	shipPos = sf::Vector2f(gd.l_playerSpawn[ln]);
 	playerHealth = 100;
 	shipSpeed = sf::Vector2f(0, 0);
-	p_rotation = 0;
+	p_rotation = 90;
+	movingLeft = false;
 }
 
 Player::~Player()
@@ -26,73 +27,100 @@ void Player::Update()
 {
 	shipSprite->setRotation(p_rotation);
 
-	//displacement.x = (std::sin(p_rotation)) * shipSpeed.x;
-	//displacement.y = (std::cos(p_rotation)) * shipSpeed.y;
+	if ((shipPos.x >= 128) && (shipPos.x <= gd.w_Dimensions.x - 128)) {
+		shipPos.x += shipSpeed.x;
+	}
+	else {
+		//stuff
+		if (shipPos.x <= 128) {
+			shipPos.x += 8;
+			shipSpeed.x = 0.5;
+		}
+		else {
+			shipPos.x -= 8;
+			shipSpeed.x = -0.5;
+		}
+	}
+	if ((shipPos.y >= 128) && (shipPos.y <= (gd.w_Dimensions.y / 2) - 128)) {
+		shipPos.y += shipSpeed.y;
+	}
+	else {
+		//stuff
 
-
-
-	//double speedmagnitude = std::sqrt((shipSpeed.x * shipSpeed.x) + (shipSpeed.y * shipSpeed.y));
-	//sf::Vector2f speedNormal = sf::Vector2f((shipSpeed.x / speedmagnitude), (shipSpeed.y / speedmagnitude));
-
-	//displacement = sf::Vector2f(speedNormal.x * (std::cos(p_rotation)) - speedNormal.y * (std::sin(p_rotation)), speedNormal.x * (std::sin(p_rotation)) + speedNormal.y * (std::cos(p_rotation)));
-
-
-	shipPos.x += shipSpeed.x;
-	shipPos.y += shipSpeed.y;
+		if (shipPos.y <= 128) {
+			shipPos.y += 8;
+			shipSpeed.y = 0.5;
+		}
+		else {
+			shipPos.y -= 8;
+			shipSpeed.y = -0.5;
+		}
+	}
 	shipSprite->setPosition(shipPos);
 	if (shipSpeed.x > 0) {
-		shipSpeed.x -= 0.005f;
+		shipSpeed.x -= 0.005;
 	}
-	else if (shipSpeed.x < 0) {
-		shipSpeed.x += 0.005f;
-	}
-	if (shipSpeed.y > 0) {
-		shipSpeed.y -= 0.005f;
-	}
-	else if (shipSpeed.y < 0) {
-		shipSpeed.y += 0.005;
+	if (shipSpeed.x < 0) {
+		shipSpeed.x += 0.005;
 	}
 
+	if (shipSpeed.y > 0) {
+		shipSpeed.y -= 0.005;
+	}
+	if (shipSpeed.y < 0) {
+		shipSpeed.y += 0.005;
+	}
+	if (turning) {
+		if (!movingLeft) {
+			if (p_rotation > -90) {
+				p_rotation -= 2;
+			}
+			else {
+				movingLeft = true;
+				turning = false;
+			}
+		}else {
+			if (p_rotation < 90) {
+				p_rotation += 2;
+			}
+			else {
+				movingLeft = false;
+				turning = false;
+			}
+		}
+	}
 }
 
 void Player::getInput(sf::Event& eve)
 {
 	if (eve.key.code == sf::Keyboard::A) {
-		if(shipSpeed.x >= -2)
-		shipSpeed.x -= 0.5f;
-		displacement.x += (std::cos(p_rotation)) * shipSpeed.x;
+		if (shipSpeed.x >= -5) {
+			shipSpeed.x -= 0.5f;
+			displacement.x += shipSpeed.x;
+			if (!movingLeft) {
+				turning = true;
+			}
+		}
 	}
 	if (eve.key.code == sf::Keyboard::D) {
-		if (shipSpeed.x <= 2)
-		shipSpeed.x += 0.5f;
-		displacement.x += (std::cos(p_rotation)) * shipSpeed.x;
+		if (shipSpeed.x <= 5) {
+			shipSpeed.x += 0.5f;
+			displacement.x += shipSpeed.x;
+			if (movingLeft) {
+				turning = true;
+			}
+		}
 	}
 	if (eve.key.code == sf::Keyboard::W) {
-		if (shipSpeed.y >= -5)
-		shipSpeed.y -= 0.5f;
-		displacement.y += (std::sin(p_rotation)) * shipSpeed.y;
+		if (shipSpeed.y >= -5) {
+			shipSpeed.y -= 0.5f;
+			displacement.y += shipSpeed.y;
+		}
 	}
 	if (eve.key.code == sf::Keyboard::S) {
-		if (shipSpeed.y <= 5)
-		shipSpeed.y += 0.5f;
-		displacement.y += (std::sin(p_rotation)) * shipSpeed.y;
-	}
-	if (eve.key.code == sf::Keyboard::Q) {
-		if (p_rotation > 0) {
-			p_rotation -= 2;
-		}
-		else {
-			p_rotation = 360;
-		}
-		
-	}
-	if (eve.key.code == sf::Keyboard::E) {
-		p_rotation += 2;
-		if (p_rotation < 360) {
-			p_rotation += 2;
-		}
-		else {
-			p_rotation = 0;
+		if (shipSpeed.y <= 5) {
+			shipSpeed.y += 0.5f;
+			displacement.y += shipSpeed.y;
 		}
 	}
 }

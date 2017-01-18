@@ -29,10 +29,14 @@ public:
 
 	void Flee();
 
+	void Spawn();
+
 private:
 	const GameData& gd;
 	
 	aiUnits* am_numUnits;
+
+	int levelNum;
 
 	vector<AI> am_Astro;
 	vector<AI> am_Nests;

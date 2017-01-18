@@ -29,6 +29,7 @@ private:
 
 	float p_rotation;
 	
+	bool movingLeft, turning;
 
 	const GameData& gd;
 
